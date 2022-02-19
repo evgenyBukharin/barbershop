@@ -1,0 +1,27 @@
+header {
+    position: fixed;
+    width: 100%;
+    color: white !important;
+}
+
+.header__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.nav__link {
+    font-size: 2.5rem;
+    color: white !important;
+}
+
+.nav__item:not(:last-child) {
+    margin-right: 24px;
+}
+
+.nav__list {
+    list-style-type: none;
+}
+
+.logo {
+    cursor: pointer;
+}

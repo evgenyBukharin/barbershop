@@ -1,0 +1,115 @@
+:root {
+    font-size: 10px;
+    --main-color: #fed35b;
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"),
+        url("/css/fonts/Roboto-Regular.ttf") format("ttf"),
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Roboto"),
+        url("/css/fonts/Roboto-Bold.ttf") format("ttf"),
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-size: 2rem;
+}
+
+.container {
+    max-width: 1410px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.jc-between {
+    justify-content: space-between;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.fd-column {
+    flex-direction: column;
+}
+
+.fw-wrap {
+    flex-wrap: wrap;
+}
+
+.py-8 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(7, 6, 6);
+}
+
+.main-color-text {
+    color: var(--main-color);
+}
+
+.my-auto {
+    margin: auto 0;
+}
+
+.min-h-100 {
+    min-height: 100vh;
+}
+
+.bg-primary {
+    background-color: var(--main-color);
+}
+
+.text-primary {
+    color: var(--main-color);
+}
+
+.text-secondary {
+    color: white;
+}
+
+.custom-hr {
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: var(--main-color);
+    margin: 20px 0;
+}
+
+.btn-reset {
+    padding: 12px 26px;
+    outline: none;
+    border: none;
+    font-size: 2rem;
+}
+
+.btn-primary {
+    margin-top: 12px;
+    background-color: var(--main-color);
+    color: white;
+}
