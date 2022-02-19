@@ -103,6 +103,7 @@ a {
 
 .btn-reset {
     padding: 12px 26px;
+    cursor: pointer;
     outline: none;
     border: none;
     font-size: 2rem;

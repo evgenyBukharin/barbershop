@@ -10,3 +10,9 @@
 .container__fix {
     margin-top: -120px;
 }
+
+header {
+    position: fixed;
+    width: 100%;
+    color: white !important;
+}

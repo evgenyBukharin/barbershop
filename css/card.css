@@ -1,0 +1,13 @@
+.card__container {
+    padding-top: 15px;
+    display: flex;
+}
+
+.card {
+    padding: 16px;
+    width: 45%;
+}
+
+.card:nth-child(2n) {
+    margin-left: 12px;
+}

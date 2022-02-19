@@ -8,6 +8,7 @@
     <title>Barbershop</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
     <?php
@@ -18,8 +19,9 @@
             <h1 class="main__title">Мы - профессиональный барбершоп с лучшими мастерами</h1>
             <span class="custom-hr"></span>
             <h2 class="main__title_sub">Множество довольных клиентов и отзывов</h2>
-            <button class="btn-reset btn-primary">Посмотреть услуги</button>
+            <button class="btn-reset btn-primary" id="service-link">Посмотреть услуги</button>
         </div>
-    </div>    
+    </div>
+    <script src="js/index.js"></script>  
 </body>
 </html>

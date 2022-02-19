@@ -1,5 +1,3 @@
-<?php require_once('php/scripts/db.php') ?>
-<link rel="stylesheet" href="/css/header.css">
 <header class="bg-primary">
     <div class="container header__container">
         <div class="flex jc-between ai-center py-8">
