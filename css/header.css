@@ -16,7 +16,7 @@
     list-style-type: none;
 }
 
-.logo {
+header .logo {
     cursor: pointer;
-    color: white;
+    color: white !important;
 }

@@ -1,7 +1,7 @@
 <header class="bg-primary">
     <div class="container header__container">
         <div class="flex jc-between ai-center py-8">
-            <h2 class="logo">BarberShop</h2>
+            <h2><a href="/" class="logo">BarberShop</a></h2>
             <nav class="nav">
                 <ul class="nav__list flex">
                     <li class="nav__item"><a href="/php/pages/service.php" class="nav__link">Услуги</a></li>
