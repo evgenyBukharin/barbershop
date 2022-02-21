@@ -5,20 +5,33 @@ barbers.forEach((barber) => {
         event.preventDefault()
         let formDate = new Date(barber.querySelector('#date').value)
         if (barber.querySelector('#date').value == '') {
-            // тут вызов модалки
+            createModal('Поле "дата" не должно быть пустым')
             return
         }
         let orderData = {
             barber_id: barber.querySelector('#barber_id').value,
+            user_id: barber.querySelector('#user_id').value,
             service_id: barber.querySelector('#service_id').value,
             date: formatDate(formDate),
             time: barber.querySelector('#time').value,
         }
-        const xhr = new XMLHttpRequest()
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest()
 
-        xhr.open('POST', '/php/scripts/makeOrder.php')
+            xhr.open('POST', '/php/scripts/makeOrder.php')
 
-        xhr.send(JSON.stringify(orderData))
+            xhr.onload = () => {
+                if (xhr.status >= 400) {
+                    reject(xhr.response)
+                } else {
+                    resolve(xhr.response)
+                }
+            }
+
+            xhr.send(JSON.stringify(orderData))
+        }).then((data) => {
+            createModal(data)
+        })
     })
 })
 

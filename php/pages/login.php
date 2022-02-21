@@ -1,4 +1,8 @@
 <?php require_once('../scripts/db.php'); ?>
+<?php require_once('modal.php'); ?>
+
+<title>Логин | BarberShop</title>
+
 <?php require_once('../header.php'); ?>
 
 <link rel="stylesheet" href="/css/global.css">
@@ -20,3 +24,6 @@
         <button class="btn-reset btn-primary">Войти</button>
     </form>
 </div>
+
+<script src="/js/global.js"></script>
+<script src="/js/login.js"></script>

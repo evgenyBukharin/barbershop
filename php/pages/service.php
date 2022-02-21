@@ -1,4 +1,5 @@
 <?php require_once('../scripts/db.php'); ?>
+<?php require_once('modal.php'); ?>
 
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -32,3 +33,5 @@
         echo '</div>';
     ?>    
 </div>
+
+<script src="/js/global.js"></script>

@@ -1,5 +1,10 @@
 <?php require_once('../scripts/db.php'); ?>
+<?php require_once('modal.php'); ?>
+
+<title>Регистрация | BarberShop</title>
+
 <?php require_once('../header.php'); ?>
+
 
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -32,6 +37,9 @@
             <h3 class="mr-8">Введите ваш email</h3>
             <input class="form__input" type="text" id="email">
         </div>
-        <button class="btn-reset btn-primary">Зарегистрироваться</button>
+        <button type="submit" class="btn-reset btn-primary">Зарегистрироваться</button>
     </form>
 </div>
+
+<script src="/js/global.js"></script>
+<script src="/js/register.js"></script>

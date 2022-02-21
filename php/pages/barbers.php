@@ -1,4 +1,5 @@
 <?php require_once('../scripts/db.php'); ?>
+<?php require_once('modal.php'); ?>
 
 <link rel="stylesheet" href="/css/global.css">
 <link rel="stylesheet" href="/css/header.css">
@@ -21,7 +22,8 @@
                 '   <form class="card">
                         <div>
                             <h3 class="card__title">' . $result[$key]["name"] . '</h3>
-                            <input id="barber_id" type="hidden" value="' . $result[$key]["id"] . '"
+                            <input id="barber_id" type="hidden" value="' . $result[$key]["id"] . '">
+                            <input id="user_id" type="hidden" value="' . $_SESSION['id'] . '">
                             <p class="card__description mt-12">Опыт работы: ' . $result[$key]["expierence"] . '</p>
                         </div>' 
                         ?>
@@ -63,4 +65,5 @@
     ?>
 </div>
 
+<script src="/js/global.js"></script>
 <script src="/js/barber.js"></script>
