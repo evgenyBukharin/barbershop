@@ -16,6 +16,13 @@
         if (password_verify($password, $result["password"])) {
             $_SESSION["id"] = $result["id"];
             $_SESSION["role"] = $result["role"];
+            if ($result["role"] == 'barber') {
+                $sql_barber = 'SELECT `id` FROM `barbers` WHERE `barber_login` = :l';
+                $query_barber = $connect -> prepare($sql_barber);
+                $query_barber -> execute(['l' => $result['login']]);
+                $result_barber = $query_barber -> fetch(PDO::FETCH_ASSOC);
+                $_SESSION['master_id'] == $result_barber['id'];
+            }
             echo "Вы успешно авторизированны!";
         } else {
             echo "Не верный пароль";
