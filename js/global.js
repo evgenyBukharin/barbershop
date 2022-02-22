@@ -7,6 +7,6 @@ function createModal(data) {
     modalData.innerHTML = data
 }
 
-modal.addEventListener('click', () => {
+modalBtn.addEventListener('click', () => {
     modal.classList.add('unvisible')
 })

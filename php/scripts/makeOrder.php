@@ -9,9 +9,9 @@
     $date = $_POST['date'];
     $time = $_POST['time'];
 
-    $sql_check = "SELECT * FROM `orders` WHERE `master_id` = :b && `date` = :d && `time` = :t && `user_id` = :u";
+    $sql_check = "SELECT * FROM `orders` WHERE `date` = :d && `time` = :t && `user_id` = :u";
     $query_check = $connect -> prepare($sql_check);
-    $result_check = $query_check->execute(['b' => $barber_id, 'd' => $date, 't' => $time, 'u' => $user_id]);
+    $result_check = $query_check->execute(['d' => $date, 't' => $time, 'u' => $user_id]);
     $result_check = $query_check -> fetchAll(PDO::FETCH_ASSOC);
     if ($result_check == []) {
         $sql = 'INSERT INTO `orders`(`master_id`, `service_id`, `date`, `time`, `user_id`) VALUES (:b, :s, :d, :t, :u)';

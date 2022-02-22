@@ -21,7 +21,7 @@ if (loginForm !== null) {
             xhr.send(JSON.stringify(orderData))
         }).then((data) => {
             if (data == 'Вы успешно авторизированны!') {
-                window.location.href = '/php/pages/userCabinet.php'
+                window.location.href = '/'
             } else {
                 createModal(data)
             }

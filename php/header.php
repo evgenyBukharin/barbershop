@@ -11,7 +11,7 @@
                             if ($_SESSION['role'] == 'user') {
                                 echo '<li class="nav__item"><a href="/php/pages/userCabinet.php" class="nav__link">Личный кабинет</a></li>';
                             } elseif ($_SESSION['role'] == 'barber') {
-                                echo '<li class="nav__item"><a href="/php/pages/barberCabinet.php" class="nav__link">Личный кабинет</a></li>';
+                                echo '<li class="nav__item"><a href="/php/pages/barberCabinet.php" class="nav__link">Личный кабинет барбера</a></li>';
                             } elseif ($_SESSION['role'] == 'admin') {
                                 echo '<li class="nav__item"><a href="/php/pages/admin.php" class="nav__link">Панель администратора</a></li>';
                             }
