@@ -50,7 +50,7 @@
     ?>  
 </div>
 <div class="container">
-    <hr>
+    <hr class="mt-12">
     <h2 class="mt-12">Изменить пароль</h2>
     <form id="changePassForm" class="mt-18">
         <div class="flex ai-center">
