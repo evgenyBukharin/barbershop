@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 22 2022 г., 23:09
+-- Время создания: Фев 23 2022 г., 15:44
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -39,7 +39,6 @@ CREATE TABLE `barbers` (
 --
 
 INSERT INTO `barbers` (`id`, `name`, `expierence`, `barber_login`) VALUES
-(1, 'Кощеев Трофим', '5 месяцев', 'kosheev.trofim'),
 (3, 'Давид Ласский', '1 год 8 месяцев', 'david.lasskiy'),
 (4, 'Грицаев Роман', '4 года 2 месяца', 'gricaev.roman');
 
@@ -64,10 +63,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `master_id`, `service_id`, `date`, `time`, `user_id`, `confirmed`) VALUES
-(2, 1, 1, '23-02-22', '9:00', 1, 'true'),
-(14, 3, 2, '28-02-22', '10:00', 1, 'false'),
-(19, 3, 2, '24-02-22', '11:00', 3, 'false'),
-(20, 3, 4, '27-02-22', '9:00', 3, 'false');
+(24, 3, 4, '28-02-22', '12:00', 3, 'true'),
+(25, 4, 3, '25-02-22', '13:00', 3, 'true'),
+(30, 4, 3, '26-02-22', '15:00', 14, 'false'),
+(31, 3, 4, '27-02-22', '13:00', 14, 'false'),
+(32, 4, 3, '25-02-22', '13:00', 15, 'true');
 
 -- --------------------------------------------------------
 
@@ -114,9 +114,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `login`, `password`, `email`, `role`) VALUES
 (3, 'test', 'test', 'test', '$2y$10$CkYsGp3YZJAYQjR5CzJKweqemp6WZgnlDWbrFFpM4WpxRhj2xCj1e', 'test', 'user'),
-(4, 'Трофим', 'Кощеев', 'kosheev.trofim', '$2y$10$FzxOX/JDmZJ/c8fBly9kuO36yezgBpb7LebyK/IDAFAQy6rT3691e', 'kosheev.trofim@gmail.com', 'barber'),
 (6, 'Давид', 'Ласский', 'david.lasskiy', '$2y$10$OwijYmEpcIgUJ1Wav.K5We0nUeRGoEDbIWVajWrkF.8DWF0EmIA46', 'david.lasskiy@gmail.com', 'barber'),
-(7, 'Роман', 'Грицаев', 'gricaev.roman', '$2y$10$/1zdLvKt.q5uoPljG5coMujBpqf.L84Sb3aCxe5Ayryt1J5yfgdyO', 'gricaev.roman@gmail.com', 'barber');
+(7, 'Роман', 'Грицаев', 'gricaev.roman', '$2y$10$/1zdLvKt.q5uoPljG5coMujBpqf.L84Sb3aCxe5Ayryt1J5yfgdyO', 'gricaev.roman@gmail.com', 'barber'),
+(8, 'Федор', 'Васильев', 'f', '$2y$10$ji68FatTgEf3.T5TF1qjW.sJ0KiVqSUhXiV1CSrHvqoeOSYWvPDjm', 'f', 'user'),
+(9, 'admin', 'admin', 'admin', '$2y$10$nWwvcQM.Aair/V6GLv8yAOevxEDxdsz8RcHzc8TzziQofxfCRl.xC', 'admin', 'admin'),
+(14, 't', 't', 't', '$2y$10$4AyFdCVuaPawN5vTBB3WyOaCXTyCdoCo89xHUUgbuK.g0pOvAu/Ku', 't', 'user'),
+(15, 'tes', 'tes', 'tes', '$2y$10$xSwTCgxRd53vR20OCGy67OJgFjOg1Bfh06maAXxpTBAQPfHqZIdeO', 'tes', 'user');
 
 --
 -- Индексы сохранённых таблиц
@@ -159,25 +162,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `barbers`
 --
 ALTER TABLE `barbers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблицы `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
