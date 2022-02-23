@@ -11,7 +11,6 @@ deleteBtns.forEach((btn) => {
             date: btn.parentNode.querySelector('.date').attributes.value.value,
             time: btn.parentNode.querySelector('.time').attributes.value.value,
         }
-        console.log(orderData);
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest()
             xhr.open('POST', '/php/scripts/deleteOrder.php')

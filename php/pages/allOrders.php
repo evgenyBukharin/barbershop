@@ -30,8 +30,9 @@
             '
                 <form class="card">
                     <h2>Услуга: ' . $result[$key]["service_title"] . '</h2>
-                    <h3 class="mt-8 master" value="' . $result[$key]["master_name"] . '">Имя мастера: ' . $result[$key]["master_name"] . '</h3 >
-                    <h3 class="mt-8 user" value="' . $result[$key]["user_name"] . '">Имя клиента ' . $result[$key]["user_name"] . ' ' . '<span class="time" value="' . $result[$key]["user_surname"] . '">' . $result[$key]["user_surname"] . '</span></h3>
+                    <input type="hidden" class="user" value="' . $result[$key]["user_id"] . '" />
+                    <h3 class="mt-8 master" value="' . $result[$key]["master_id"] . '">Имя мастера: ' . $result[$key]["master_name"] . '</h3 >
+                    <h3 class="mt-8" value="' . $result[$key]["user_name"] . '">Имя клиента: ' . $result[$key]["user_name"] . ' ' . '<span value="' . $result[$key]["user_surname"] . '">' . $result[$key]["user_surname"] . '</span></h3>
                     <h3 class="mt-8 date" value="' . $result[$key]["date"] . '">Запись на ' . $result[$key]["date"] . ' ' . '<span class="time" value="' . $result[$key]["time"] . '">' . $result[$key]["time"] . '</span></h3>
                     <div class="w-100 flex jc-between">
                         <button class="btn-reset btn-primary finishOrderBtn">Завершить заказ</button>';
