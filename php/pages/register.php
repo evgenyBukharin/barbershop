@@ -15,27 +15,27 @@
     <form id="regForm" class="mt-12">
         <div class="flex ai-center">
             <h3 class="mr-8">Введите ваше имя</h3>
-            <input class="form__input" type="text" id="name">
+            <input class="form__input" type="text" id="name" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Введите вашу фамилию</h3>
-            <input class="form__input" type="text" id="surname">
+            <input class="form__input" type="text" id="surname" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Введите ваш логин</h3>
-            <input class="form__input" type="text" id="login">
+            <input class="form__input" type="text" id="login" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Введите ваш пароль</h3>
-            <input class="form__input" type="password" id="password">
+            <input class="form__input" type="password" id="password" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Повторите пароль</h3>
-            <input class="form__input" type="password" id="password_confirmation">
+            <input class="form__input" type="password" id="password_confirmation" required>
         </div>
-        <div class="flex ai-center mt-12">
+        <div class="flex ai-center mt-12" required>
             <h3 class="mr-8">Введите ваш email</h3>
-            <input class="form__input" type="text" id="email">
+            <input class="form__input" type="email" id="email" required>
         </div>
         <button type="submit" class="btn-reset btn-primary">Зарегистрироваться</button>
     </form>

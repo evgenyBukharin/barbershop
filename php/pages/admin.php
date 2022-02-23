@@ -24,27 +24,27 @@
     <form id="barberForm" class="mt-12">
         <div class="flex ai-center">
             <h3 class="mr-8">Введите имя</h3>
-            <input class="form__input" type="text" id="name">
+            <input class="form__input" type="text" id="name"  required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Введите фамилию</h3>
-            <input class="form__input" type="text" id="surname">
+            <input class="form__input" type="text" id="surname"  required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Опыт работы</h3>
-            <input class="form__input" type="text" id="expierence">
+            <input class="form__input" type="text" id="expierence"  required >
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Логин для входа в аккаунт</h3>
-            <input class="form__input" type="text" id="login">
+            <input class="form__input" type="text" id="login" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Пароль для входа в аккаунт</h3>
-            <input class="form__input" type="password" id="password">
+            <input class="form__input" type="password" id="password" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Электронная почта</h3>
-            <input class="form__input" type="text" id="email">
+            <input class="form__input" type="email" id="email" required>
         </div>
         <input type="hidden" id="role" value="barber">
         <button class="btn-reset btn-primary">Добавить</button>
