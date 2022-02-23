@@ -53,7 +53,7 @@
     <h2 class="mt-12">Удалить барбера</h2>
     <form id="deleteBarberForm" class="mt-12">
         Выберите барбера 
-        <select id="barber_login" class="card__select">
+        <select id="barber_login" class="card__select" required>
             <?php
             
                 $sql = 'SELECT * FROM `barbers`';
@@ -75,20 +75,20 @@
     <form id="serviceForm" class="mt-12" enctype="multipart/form-data">
         <div class="flex ai-center">
             <h3 class="mr-8">Введите название</h3>
-            <input class="form__input" type="text" id="title" name="title">
+            <input class="form__input" type="text" id="title" name="title" required>
         </div>
         <div class="flex ai-center">
             <h3 class="mr-8">Введите описание</h3>
-            <textarea class="form__input mt-12" type="text" id="description" name="description"></textarea>
+            <textarea class="form__input mt-12" type="text" id="description" name="description" required></textarea>
         </div>
-        Загрузите изображение: <input class="mt-12" type="file" id="image" name="image"> <br>
+        Загрузите изображение: <input class="mt-12" type="file" id="image" name="image" required> <br>
         <button class="btn-reset btn-primary">Добавить</button>
     </form>
     <hr class="mt-12">
     <h2 class="mt-12">Удалить услугу</h2>
     <form id="deleteServiceForm" class="mt-12">
         Выберите услугу 
-        <select id="service_id" class="card__select">
+        <select id="service_id" class="card__select" required>
             <?php
             
                 $sql = 'SELECT * FROM `service`';
