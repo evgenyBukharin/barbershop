@@ -42,7 +42,7 @@
                         <div class="flex jc-between" style="width: 60%;">
                             <div>
                                 <h4 class="mb-0 mt-12">Выберите дату</h4>
-                                <input type="date" id="date" class="mt-4" min="<?php echo date("20y-m-d") ?>">
+                                <input type="date" id="date" class="mt-4" required min="<?php echo date("20y-m-d")?>">
                             </div>
                             <div>
                                 <h4 class="mb-0 mt-12">Выберите время</h4>
