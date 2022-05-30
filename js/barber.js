@@ -4,10 +4,6 @@ barbers.forEach((barber) => {
     barber.addEventListener('submit', (event) => {
         event.preventDefault()
         let formDate = new Date(barber.querySelector('#date').value)
-        if (barber.querySelector('#date').value == '') {
-            createModal('Поле "дата" не должно быть пустым')
-            return
-        }
         let orderData = {
             barber_id: barber.querySelector('#barber_id').value,
             user_id: barber.querySelector('#user_id').value,

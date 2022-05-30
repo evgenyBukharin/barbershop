@@ -37,6 +37,7 @@
             <h3 class="mr-8">Введите ваш email</h3>
             <input class="form__input" type="email" id="email" required>
         </div>
+        <input class="mt-12" type="checkbox" name="soglashenie" id="soglashenie" required> Согласен <a style="text-decoration: underline;" href="/php/pages/ps.docx" download>с соглашением на обработку персональных данных</a><br>
         <button type="submit" class="btn-reset btn-primary">Зарегистрироваться</button>
     </form>
 </div>
