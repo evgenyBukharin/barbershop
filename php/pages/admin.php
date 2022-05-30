@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if ($_SESSION['role'] !== 'admin') {
-        header('Location: /');
-    }
+session_start();
+if ($_SESSION['role'] !== 'admin') {
+    header('Location: /');
+}
 ?>
 
 <?php require_once('../scripts/db.php'); ?>
@@ -24,15 +24,15 @@
     <form id="barberForm" class="mt-12">
         <div class="flex ai-center">
             <h3 class="mr-8">Введите имя</h3>
-            <input class="form__input" type="text" id="name"  required>
+            <input class="form__input" type="text" id="name" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Введите фамилию</h3>
-            <input class="form__input" type="text" id="surname"  required>
+            <input class="form__input" type="text" id="surname" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Опыт работы</h3>
-            <input class="form__input" type="text" id="expierence"  required >
+            <input class="form__input" type="text" id="expierence" required>
         </div>
         <div class="flex ai-center mt-12">
             <h3 class="mr-8">Логин для входа в аккаунт</h3>
@@ -49,33 +49,37 @@
         <input type="hidden" id="role" value="barber">
         <button class="btn-reset btn-primary">Добавить</button>
     </form>
-    <hr class="mt-12">  
+    <hr class="mt-12">
     <h2 class="mt-12">Удалить барбера</h2>
     <form id="deleteBarberForm" class="mt-12">
-        Выберите барбера 
+        Выберите барбера
         <select id="barber_login" class="card__select" required>
             <?php
-            
-                $sql = 'SELECT * FROM `barbers`';
-                $query = $connect -> prepare($sql);
-                $query->execute();
-                $result = $query -> fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($result as $key => $value) {
-                    echo
-                    '<option value="' . $result[$key]["barber_login"] . '">' . $result[$key]["name"] . '</option>';                    
-                }
+            $sql = 'SELECT * FROM `barbers`';
+            $query = $connect->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $key => $value) {
+                echo
+                '<option value="' . $result[$key]["barber_login"] . '">' . $result[$key]["name"] . '</option>';
+            }
 
             ?>
         </select><br>
         <button class="btn-reset btn-primary">Удалить</button>
     </form>
-    <hr class="mt-12">  
+    <hr class="mt-12">
     <h2 class="mt-12">Добавить услугу</h2>
     <form id="serviceForm" class="mt-12" enctype="multipart/form-data">
         <div class="flex ai-center">
             <h3 class="mr-8">Введите название</h3>
             <input class="form__input" type="text" id="title" name="title" required>
+        </div>
+        <div class="flex ai-center">
+            <h3 class="mr-8">Введите цену</h3>
+            <input class="form__input" type="number" id="price" name="price" required>
         </div>
         <div class="flex ai-center">
             <h3 class="mr-8">Введите описание</h3>
@@ -87,19 +91,19 @@
     <hr class="mt-12">
     <h2 class="mt-12">Удалить услугу</h2>
     <form id="deleteServiceForm" class="mt-12">
-        Выберите услугу 
+        Выберите услугу
         <select id="service_id" class="card__select" required>
             <?php
-            
-                $sql = 'SELECT * FROM `service`';
-                $query = $connect -> prepare($sql);
-                $query->execute();
-                $result = $query -> fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($result as $key => $value) {
-                    echo
-                    '<option value="' . $result[$key]["id"] . '">' . $result[$key]["title"] . '</option>';                    
-                }
+            $sql = 'SELECT * FROM `service`';
+            $query = $connect->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $key => $value) {
+                echo
+                '<option value="' . $result[$key]["id"] . '">' . $result[$key]["title"] . '</option>';
+            }
 
             ?>
         </select><br>

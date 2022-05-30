@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 23 2022 г., 15:44
+-- Время создания: Май 30 2022 г., 18:25
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -40,7 +40,8 @@ CREATE TABLE `barbers` (
 
 INSERT INTO `barbers` (`id`, `name`, `expierence`, `barber_login`) VALUES
 (3, 'Давид Ласский', '1 год 8 месяцев', 'david.lasskiy'),
-(4, 'Грицаев Роман', '4 года 2 месяца', 'gricaev.roman');
+(4, 'Грицаев Роман', '4 года 2 месяца', 'gricaev.roman'),
+(7, 'qwe qwe', 'qwe', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -65,9 +66,11 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `master_id`, `service_id`, `date`, `time`, `user_id`, `confirmed`) VALUES
 (24, 3, 4, '28-02-22', '12:00', 3, 'true'),
 (25, 4, 3, '25-02-22', '13:00', 3, 'true'),
-(30, 4, 3, '26-02-22', '15:00', 14, 'false'),
+(30, 4, 3, '26-02-22', '15:00', 14, 'true'),
 (31, 3, 4, '27-02-22', '13:00', 14, 'false'),
-(32, 4, 3, '25-02-22', '13:00', 15, 'true');
+(32, 4, 3, '25-02-22', '13:00', 15, 'true'),
+(35, 4, 2, '05-03-22', '13:00', 15, 'false'),
+(36, 3, 3, '26-02-22', '14:00', 9, 'false');
 
 -- --------------------------------------------------------
 
@@ -79,18 +82,19 @@ CREATE TABLE `service` (
   `id` int(11) NOT NULL,
   `title` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `img` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `service`
 --
 
-INSERT INTO `service` (`id`, `title`, `description`, `img`) VALUES
-(1, 'Взрослая стрижка', 'Стрижка — самая востребованная услуга, ведь достаточно месяца, чтобы волосы отросли и прическа потеряла форму. Если вам нравится контраст между выбритыми висками и затылком, коррекцию необходимо делать раз в 2-3 недели', '/images/adultHairCut.png'),
-(2, 'Детская стрижка', 'Развивать чувство стиля никогда не рано. И хотя большинство барбершопов позиционируются как мужские салоны с брутальной атмосферой, в большинстве из них с удовольствием работают и с юными джентельменами, и с малышами.', '/images/34.jpg'),
-(3, 'Бритье «ОПАСКОЙ»', 'Опасная бритва — инструмент для настоящих эстетов. Открытое лезвие позволяет добиться идеально гладкой кожи, но по-настоящему опасным оно становится в руках человека без опыта и сноровки.', '/images/all_all_large-t1541770733-r1w1905h726q90zc1.jpg'),
-(4, 'Укладка', 'Мы уверены, что с наступлением холодов эта услуга станет еще популярнее среди мужчин. Перепады температур, шапки и теплые свитеры не лучшим образом сказываются на прическе, даже если вы делаете укладку едва ли не на уровне барбера.', '/images/ukladka.jpg');
+INSERT INTO `service` (`id`, `title`, `description`, `img`, `price`) VALUES
+(1, 'Взрослая стрижка', 'Стрижка — самая востребованная услуга, ведь достаточно месяца, чтобы волосы отросли и прическа потеряла форму. Если вам нравится контраст между выбритыми висками и затылком, коррекцию необходимо делать раз в 2-3 недели', '/images/adultHairCut.png', 700),
+(2, 'Детская стрижка', 'Развивать чувство стиля никогда не рано. И хотя большинство барбершопов позиционируются как мужские салоны с брутальной атмосферой, в большинстве из них с удовольствием работают и с юными джентельменами, и с малышами.', '/images/34.jpg', 500),
+(3, 'Бритье «ОПАСКОЙ»', 'Опасная бритва — инструмент для настоящих эстетов. Открытое лезвие позволяет добиться идеально гладкой кожи, но по-настоящему опасным оно становится в руках человека без опыта и сноровки.', '/images/all_all_large-t1541770733-r1w1905h726q90zc1.jpg', 350),
+(4, 'Укладка', 'Мы уверены, что с наступлением холодов эта услуга станет еще популярнее среди мужчин. Перепады температур, шапки и теплые свитеры не лучшим образом сказываются на прическе, даже если вы делаете укладку едва ли не на уровне барбера.', '/images/ukladka.jpg', 400);
 
 -- --------------------------------------------------------
 
@@ -119,7 +123,10 @@ INSERT INTO `users` (`id`, `name`, `surname`, `login`, `password`, `email`, `rol
 (8, 'Федор', 'Васильев', 'f', '$2y$10$ji68FatTgEf3.T5TF1qjW.sJ0KiVqSUhXiV1CSrHvqoeOSYWvPDjm', 'f', 'user'),
 (9, 'admin', 'admin', 'admin', '$2y$10$nWwvcQM.Aair/V6GLv8yAOevxEDxdsz8RcHzc8TzziQofxfCRl.xC', 'admin', 'admin'),
 (14, 't', 't', 't', '$2y$10$4AyFdCVuaPawN5vTBB3WyOaCXTyCdoCo89xHUUgbuK.g0pOvAu/Ku', 't', 'user'),
-(15, 'tes', 'tes', 'tes', '$2y$10$xSwTCgxRd53vR20OCGy67OJgFjOg1Bfh06maAXxpTBAQPfHqZIdeO', 'tes', 'user');
+(15, 'tes', 'tes', 'tes', '$2y$10$xSwTCgxRd53vR20OCGy67OJgFjOg1Bfh06maAXxpTBAQPfHqZIdeO', 'tes', 'user'),
+(16, 'asd', 'ewqe', 'esdadasd', '$2y$10$51ZtY8iZ8PfVwROFACvSCuiRPfCrUBNb/G3Bivj2bOhvsMFHySJjq', 'wewqeqw', 'user'),
+(17, 'qwe', 'qwe', 'qwe', '$2y$10$Tl4PFONrIEtc8jseR/Bpcuo4igvkG3N5HamclHoat3/3Zq6VLy7r6', 'qwe', 'barber'),
+(18, 'asd', 'asd', 'asd', '$2y$10$UFZC.x7qP///TOzejOTFM.MFvDaKHGoKOm6BHS19bqmmvQNtIuKLa', 'asd', 'user');
 
 --
 -- Индексы сохранённых таблиц
@@ -162,13 +169,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `barbers`
 --
 ALTER TABLE `barbers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT для таблицы `service`
@@ -180,7 +187,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
