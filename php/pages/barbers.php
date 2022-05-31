@@ -48,12 +48,6 @@
             <div id="timeContainer" style="display: none">
                 <h4 class="mb-0">Выберите время</h4>
                 <select id="time" class="card__select mt-12">
-                    <?php
-                    $timetable = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'];
-                    foreach ($timetable as $time => $value) {
-                        echo '<option value="' . $timetable[$time] . '">' . $timetable[$time] . '</option>';
-                    }
-                    ?>
                 </select>
             </div>
         </div>
