@@ -19,7 +19,7 @@
     echo '<div class="card__container">';
     foreach ($result as $key => $value) {
         echo
-        '   <form class="card">
+        '   <form class="card" enctype="multipart/form-data">
                         <div>
                             <h3 class="card__title">' . $result[$key]["name"] . '</h3>
                             <input id="barber_id" type="hidden" value="' . $result[$key]["id"] . '">
@@ -27,7 +27,8 @@
                             <p class="card__description mt-12">Опыт работы: ' . $result[$key]["expierence"] . '</p>
                         </div>'
     ?>
-        <select id="service_id" class="card__select mt-12">
+        <h3 class="mt-12 mb-4">Выберите услугу</h3>
+        <select id="service_id" class="card__select mb-12">
             <?php
             $sql1 = "SELECT * FROM `service`";
             $query1 = $connect->prepare($sql1);
@@ -41,11 +42,11 @@
         </select>
         <div class="flex jc-between" style="width: 60%;">
             <div>
-                <h4 class="mb-0 mt-12">Выберите дату</h4>
-                <input type="date" id="date" class="mt-4" min="<?php echo date("20y-m-d") ?>">
+                <h4 class="mb-0">Выберите дату</h4>
+                <input type="date" id="date" name="date" class="mt-4" min="<?php echo date("20y-m-d") ?>">
             </div>
-            <div>
-                <h4 class="mb-0 mt-12">Выберите время</h4>
+            <div id="timeContainer" style="display: none">
+                <h4 class="mb-0">Выберите время</h4>
                 <select id="time" class="card__select mt-12">
                     <?php
                     $timetable = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'];

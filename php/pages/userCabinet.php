@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if ($_SESSION['role'] !== 'user') {
-        header('Location: /');
-    }
+session_start();
+if ($_SESSION['role'] !== 'user') {
+    header('Location: /');
+}
 ?>
 
 <?php require_once('../scripts/db.php'); ?>
@@ -19,35 +19,35 @@
 <link rel="stylesheet" href="/css/personal_cabinet.css">
 
 <div class="container">
-    <h1 class="mt-12">Здравствуйте, <?php 
-        $sql = "SELECT `name`, `surname` FROM `users` WHERE `id` = :i";
-        $query = $connect -> prepare($sql);
-        $query -> execute(["i" => $_SESSION['id']]);
-        $result = $query -> fetch(PDO::FETCH_ASSOC);
-        echo $result['name'] . ' ' . $result['surname'] . '.'
-    ?></h1>
-    <?php 
-        $sql = "SELECT b.id, b.name, s.title, o.date, o.time, o.confirmed FROM orders o INNER JOIN barbers b ON o.master_id = b.id INNER JOIN service s ON s.id = o.service_id WHERE o.user_id = :i";
-        $query = $connect -> prepare($sql);
-        $query -> execute(['i' => $_SESSION['id']]);
-        $result = $query -> fetchAll(PDO::FETCH_ASSOC);
-        echo '<div class="card__container">';
-        foreach ($result as $key => $value) {
-            echo 
-            '
+    <h1 class="mt-12">Здравствуйте, <?php
+                                    $sql = "SELECT `name`, `surname` FROM `users` WHERE `id` = :i";
+                                    $query = $connect->prepare($sql);
+                                    $query->execute(["i" => $_SESSION['id']]);
+                                    $result = $query->fetch(PDO::FETCH_ASSOC);
+                                    echo $result['name'] . ' ' . $result['surname'] . '.'
+                                    ?></h1>
+    <?php
+    $sql = "SELECT b.id, b.name, s.title, s.price, o.date, o.time, o.confirmed FROM orders o INNER JOIN barbers b ON o.master_id = b.id INNER JOIN service s ON s.id = o.service_id WHERE o.user_id = :i";
+    $query = $connect->prepare($sql);
+    $query->execute(['i' => $_SESSION['id']]);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    echo '<div class="card__container">';
+    foreach ($result as $key => $value) {
+        echo
+        '
                 <form class="card">
                     <input class="user" type="hidden" value="' . $_SESSION['id'] . '">
-                    <h2>Услуга: ' . $result[$key]["title"] . '</h2>
+                    <h2>Услуга: ' . $result[$key]["title"] . ' | Цена: ' . $result[$key]["price"] . ' руб.</h2>
                     <h3 class="mt-8 master" value="' . $result[$key]["id"] . '">Имя мастера: ' . $result[$key]["name"] . '</h3 >
                     <h3 class="mt-8 date" value="' . $result[$key]["date"] . '">Запись на ' . $result[$key]["date"] . ' ' . '<span class="time" value="' . $result[$key]["time"] . '">' . $result[$key]["time"] . '</span></h3>';
-                if ($result[$key]["confirmed"] == 'false') {
-                    echo '<button class="btn-reset btn-primary deleteOrderBtn">Отменить запись</button>';
-                }
-            echo '</form>
-            ';
+        if ($result[$key]["confirmed"] == 'false') {
+            echo '<button class="btn-reset btn-primary deleteOrderBtn">Отменить запись</button>';
         }
-        echo '</div>';
-    ?>  
+        echo '</form>
+            ';
+    }
+    echo '</div>';
+    ?>
 </div>
 <div class="container">
     <hr class="mt-12">
