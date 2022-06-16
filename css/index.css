@@ -1,18 +1,35 @@
 .main__title {
-    font-size: 5rem;
+    font-size: 7rem;
     margin-bottom: 2rem;
 }
 
 .main__title_sub {
+    font-size: 5rem;
+}
+
+.main__title_address {
+    margin-top: 100px;
+    margin-bottom: 30px;
     font-size: 4rem;
 }
 
 .container__fix {
-    margin-top: -120px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 header {
     position: fixed;
     width: 100%;
     color: white !important;
+}
+
+.main__map {
+    width: 100%;
+}
+
+.main__btn {
+    width: fit-content;
 }
